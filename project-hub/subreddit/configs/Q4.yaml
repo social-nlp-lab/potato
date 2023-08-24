@@ -3,32 +3,27 @@
 
     "server_name": "potato annotator",
 
-    "annotation_task_name": "Simple Text Box Example",
+    "annotation_task_name": "Drug Subreddit Analysis (Substances)",
 
-    #
     # Potato will write the annotation file for all annotations to this
     # directory, as well as per-annotator output files and state information
     # necessary to restart annotation.
-    #
-    "output_annotation_dir": "annotation_output/simple-text-box/",
+    "output_annotation_dir": "annotation_output/pilot/Q5",
 
-    #
     # The output format for the all-annotator data. Allowed formats are:
     # * jsonl
     # * json (same output as jsonl)
     # * csv
     # * tsv
     #
-    "output_annotation_format": "csv", 
+    "output_annotation_format": "tsv",
 
-    #
     # If annotators are using a codebook, this will be linked at the top to the
     # instance for easy access
-    #
     "annotation_codebook_url": "",
 
     "data_files": [
-       "data/toy-example.json"
+       "data_files/drug.csv"
     ],
 
     "item_properties": {
@@ -45,24 +40,45 @@
       "users": [  ],
     },
 
+    #list_as_text is used when the input text is actually a list of texts, usually used for best-worst-scaling or dialogue analysis
+    "list_as_text": {
+      "text_list_prefix_type": 'none', #whether automatically insert a prefix for each line, currently supporting 'number', 'alphabet', 'number'
+      "horizontal": True,
+    },
+
     # How many seconds do you want the annotators spend on each instance, after
     # that, an alert will be sent per alert_time_each_instance seconds.
     "alert_time_each_instance": 10000000,
 
-    "annotation_schemes": [      
+    "annotation_schemes": [
         {
-            "annotation_type": "text",
-            "name": "textbox_input",
-            "description": "How does this text make you feel?",
-            # you could easily define a list of textboxes within one schema with a list of labels
-            "labels": ['happy?','sad?'],
-            # if you want to use multi-line textbox, turn on the text area and set the desired rows and cols of the textbox
-            "textarea": {
-              "on": True,
-              "rows": 2,
-              "cols": 40
-            }
-        }       
+          "annotation_type": "highlight",
+          "name": "substances",
+          "description": "Highlight any substances that you know or suspect to be drugs or drug related euphemism",
+          "labels": [
+            "Formal Substances", "Euphemism"
+          ],
+
+          # If true, numbers [1-len(labels)] will be bound to each
+          # label. Highlight selection annotations with more than 10 are not supported
+          # with this simple keybinding and will need to use the full item
+          # specification to bind all labels to keys.
+          "sequential_key_binding": True,
+        },
+        # {
+        #     "annotation_type": "text",
+        #     "name": "textbox_input",
+        #     "description": "Write the list of substances you've identified",
+        #     "labels": [
+        #        "Substances", "Possible Euphemism"
+        #     ],
+
+        #     # If true, numbers [1-len(labels)] will be bound to each
+        #     # label. Aannotations with more than 10 are not supported with this
+        #     # simple keybinding and will need to use the full item specification
+        #     # to bind all labels to keys.
+        #     "sequential_key_binding": True,                        
+        # },       
     ],
 
     # The html that changes the visualiztation for your task. Change this file
@@ -85,6 +101,6 @@
     "header_file": "default",
 
     # This is where the actual HTML files will be generated
-    "site_dir": "default"
+    "site_dir": "default",
 
 }

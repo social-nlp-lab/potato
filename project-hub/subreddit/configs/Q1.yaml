@@ -3,12 +3,12 @@
 
     "server_name": "potato annotator",
 
-    "annotation_task_name": "Sentiment Analysis",
+    "annotation_task_name": "Drug Subreddit Analysis (Personal Experience)",
 
     # Potato will write the annotation file for all annotations to this
     # directory, as well as per-annotator output files and state information
     # necessary to restart annotation.
-    "output_annotation_dir": "annotation_output/",
+    "output_annotation_dir": "annotation_output/pilot/Q1",
 
     # The output format for the all-annotator data. Allowed formats are:
     # * jsonl
@@ -23,7 +23,7 @@
     "annotation_codebook_url": "",
 
     "data_files": [
-       "data_files/toy-example.csv"
+       "data_files/drug.csv"
     ],
 
     "item_properties": {
@@ -45,34 +45,70 @@
     "alert_time_each_instance": 10000000,
 
     "annotation_schemes": [      
+
         {
             "annotation_type": "radio",
-            "name": "sentiment",
-            "description": "What kind of sentiment does the given text hold?",
+            "name": "Action",
+            "description": "What is the primary purpose of the post? Is the post primarily asking for something from the community (Inquisition)? Or is it meant to share stories and lived experiences (Disclosure)?",
             "labels": [
-               "positive", "neutral", "negative",
+               "Inquisition", "Disclosure"
             ],
 
             # If true, numbers [1-len(labels)] will be bound to each
-            # label. Aannotations with more than 10 are not supported with this
+            # label. Annotations with more than 10 are not supported with this
             # simple keybinding and will need to use the full item specification
             # to bind all labels to keys.
             "sequential_key_binding": True,                        
-        },       
+        }, 
         {
-            "annotation_type": "radio",
-            "name": "sentiment",
-            "description": "What kind of point does the given text hold?",
+            "annotation_type": "multiselect",
+            "name": "Topics",
+            "description": "This is the main theme of the post",
             "labels": [
-               "positive", "neutral", "negative",
-            ],
+                { "name": "Symptoms",
+                  "tooltip_file": "tooltips/Symptoms.html"
+                },
+                {
+                  "name": "Guidance",
+                  "tooltip_file": "tooltips/Guidance.html"
+                 },
 
-            # If true, numbers [1-len(labels)] will be bound to each
-            # label. Aannotations with more than 10 are not supported with this
-            # simple keybinding and will need to use the full item specification
-            # to bind all labels to keys.
-            "sequential_key_binding": False,                        
+                { "name": "Withdrawls",
+                  "tooltip_file": "tooltips/Withdrawal.html"
+                },
+
+                { "name": "Recovery",
+                  "tooltip_file": "tooltips/Recovery.html",
+                },
+                { "name": "Relapse",
+                  "tooltip_file": "tooltips/Relapse.html",
+                },
+                { "name": "Sobriety",
+                  "tooltip_file": "tooltips/Sobriety.html",
+                },
+                { "name": "Overdose",
+                  "tooltip_file": "tooltips/Overdose.html",
+                },
+                { "name": "Social Support",
+                  "tooltip_file": "tooltips/Social_Support.html",
+                },
+                { "name": "Cultural Reference",
+                  "tooltip_file": "tooltips/Culture_Reference.html"
+                },
+                { "name": "Values",
+                  "tooltip_file": "tooltips/Values.html"
+                },
+                { "name": "Banter",
+                  "tooltip_file": "tooltips/Banter.html"
+                },
+                { "name": "Not Applicable",
+                  "tooltip_file": "tooltips/NA.html"
+                },
+                
+            ]
         },
+        
+
     ],
 
     # The html that changes the visualiztation for your task. Change this file

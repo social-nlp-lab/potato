@@ -288,5 +288,22 @@ def generate_span_layout(annotation_scheme, horizontal=False):
 
     schematic += bad_text_schematic
 
+    if "has_free_response" in annotation_scheme and annotation_scheme["has_free_response"]:
+
+        label = "free_response"
+        name = annotation_scheme["name"] + ":::free_response"
+        class_name = annotation_scheme["name"]
+        tooltip = "Entire a label not listed here"
+        instruction = (
+            "Other"
+            # if "instruction" not in annotation_scheme["has_free_response"]
+            # else annotation_scheme["has_free_response"]["instruction"]
+        )
+
+        schematic += (
+            '%s <input class="%s" type="text" id="%s" name="%s" >'
+            + '  <label for="%s" %s></label><br/>'
+        ) % (instruction, class_name, name, name, name, tooltip)
+
     schematic += "  </fieldset>\n</form>\n"
     return schematic, key_bindings

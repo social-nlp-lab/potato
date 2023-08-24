@@ -3,12 +3,12 @@
 
     "server_name": "potato annotator",
 
-    "annotation_task_name": "Sentiment Analysis",
+    "annotation_task_name": "Drug Subreddit Analysis (Stage of Addiction)",
 
     # Potato will write the annotation file for all annotations to this
     # directory, as well as per-annotator output files and state information
     # necessary to restart annotation.
-    "output_annotation_dir": "annotation_output/",
+    "output_annotation_dir": "annotation_output/pilot/Q7",
 
     # The output format for the all-annotator data. Allowed formats are:
     # * jsonl
@@ -23,7 +23,7 @@
     "annotation_codebook_url": "",
 
     "data_files": [
-       "data_files/toy-example.csv"
+       "data_files/drug.csv"
     ],
 
     "item_properties": {
@@ -45,34 +45,73 @@
     "alert_time_each_instance": 10000000,
 
     "annotation_schemes": [      
+        # {
+        #     "annotation_type": "radio",
+        #     "name": "Personal experience",
+        #     "description": "Is the post describing a primary experience with a specific substance?",
+        #     "labels": [
+        #       { "name": "Early Use",
+        #         "tooltip_file": "tooltips/Early_Use.html"
+        #       },
+        #       {
+        #         "name": "Continued Use",
+        #         "tooltip_file": "tooltips/Continued_Use.html"
+        #       },
+
+        #       { "name": "Treatment",
+        #         "tooltip_file": "tooltips/Treatment.html"
+        #       },
+        #       "None"
+        #     ],
+
+        #     # If true, numbers [1-len(labels)] will be bound to each
+        #     # label. Annotations with more than 10 are not supported with this
+        #     # simple keybinding and will need to use the full item specification
+        #     # to bind all labels to keys.
+        #     "sequential_key_binding": True,                        
+        # }, 
         {
             "annotation_type": "radio",
-            "name": "sentiment",
-            "description": "What kind of sentiment does the given text hold?",
+            "name": "Withdrawal",
+            "description": "The next three questions will assess if the post is indicative of an SUD. Please see annotation guideline for the definition of an SUD. Does the post author admit to using a substance nt as prescribed?",
             "labels": [
-               "positive", "neutral", "negative",
+              "Yes", "No"
             ],
 
             # If true, numbers [1-len(labels)] will be bound to each
-            # label. Aannotations with more than 10 are not supported with this
+            # label. Annotations with more than 10 are not supported with this
             # simple keybinding and will need to use the full item specification
             # to bind all labels to keys.
             "sequential_key_binding": True,                        
-        },       
+        }, 
         {
             "annotation_type": "radio",
-            "name": "sentiment",
-            "description": "What kind of point does the given text hold?",
+            "name": "Relapse",
+            "description": "Does the post author admit to having a strong desire or urge to use a specified substance at least once a week or more?",
             "labels": [
-               "positive", "neutral", "negative",
+              "Yes", "No"
             ],
 
             # If true, numbers [1-len(labels)] will be bound to each
-            # label. Aannotations with more than 10 are not supported with this
+            # label. Annotations with more than 10 are not supported with this
             # simple keybinding and will need to use the full item specification
             # to bind all labels to keys.
-            "sequential_key_binding": False,                        
-        },
+            "sequential_key_binding": True,                        
+        }, 
+        {
+            "annotation_type": "radio",
+            "name": "Relapse",
+            "description": "Does the post author admit to having concern about their substance use, either from themselves or from others?",
+            "labels": [
+              "Yes", "No"
+            ],
+
+            # If true, numbers [1-len(labels)] will be bound to each
+            # label. Annotations with more than 10 are not supported with this
+            # simple keybinding and will need to use the full item specification
+            # to bind all labels to keys.
+            "sequential_key_binding": True,                        
+        }, 
     ],
 
     # The html that changes the visualiztation for your task. Change this file

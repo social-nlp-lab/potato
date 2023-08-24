@@ -1,0 +1,148 @@
+        {
+            "annotation_type": "radio",
+            "name": "Personal experience",
+            "description": "Is the post describing a primary experience with a specific substance?",
+            "labels": [
+               "yes", "no"
+            ],
+
+            # If true, numbers [1-len(labels)] will be bound to each
+            # label. Annotations with more than 10 are not supported with this
+            # simple keybinding and will need to use the full item specification
+            # to bind all labels to keys.
+            "sequential_key_binding": True,                        
+        }, 
+        {
+          "annotation_type": "multiselect",
+            "name": "Emotion",
+            "description": "This is the main emotion of the post",
+            "labels": [
+                { "name": "Disgust",
+                  "tooltip_file": "tooltips/Disgust.html"
+                },
+                {
+                  "name": "Guilt",
+                  "tooltip_file": "tooltips/Guilt.html"
+                 },
+
+                { "name": "Satisfaction",
+                  "tooltip_file": "tooltips/Satisfaction.html"
+                },
+
+                { "name": "Remorse",
+                  "tooltip_file": "tooltips/Remorse.html",
+                },
+                { "name": "Gratitude",
+                  "tooltip_file": "tooltips/Gratitude.html",
+                },
+                { "name": "Shame",
+                  "tooltip_file": "tooltips/Shame.html",
+                },
+                { "name": "Fear",
+                  "tooltip_file": "tooltips/Fear.html",
+                },
+                { "name": "Happiness",
+                  "tooltip_file": "tooltips/Happiness.html",
+                },
+                { "name": "Anger",
+                  "tooltip_file": "tooltips/Anger.html"
+                },
+                { "name": "Anxiety",
+                  "tooltip_file": "tooltips/Anxiety.html"
+                },
+                { "name": "Hope",
+                  "tooltip_file": "tooltips/Hope.html"
+                },
+                { "name": "Confusion",
+                  "tooltip_file": "tooltips/Confusion.html"
+                },
+                { "name": "Despair",
+                  "tooltip_file": "tooltips/Despair.html"
+                },
+                { "name": "Excitement",
+                  "tooltip_file": "tooltips/Excitement.html"
+                },
+
+            ]
+        }, 
+        {
+          "annotation_type": "highlight",
+          "name": "substances",
+          "description": "Highlight any substances that you know or suspect to be drugs or drug related euphemism",
+          "labels": [
+            "Substance", "Euphemism"
+          ],
+
+          # If true, numbers [1-len(labels)] will be bound to each
+          # label. Highlight selection annotations with more than 10 are not supported
+          # with this simple keybinding and will need to use the full item
+          # specification to bind all labels to keys.
+          "sequential_key_binding": True,
+        },
+        {
+            "annotation_type": "text",
+            "name": "textbox_input",
+            "description": "Write the list of substances you've identified",
+            "labels": [
+               "Substances", "Possible Euphemism"
+            ],
+
+            # If true, numbers [1-len(labels)] will be bound to each
+            # label. Aannotations with more than 10 are not supported with this
+            # simple keybinding and will need to use the full item specification
+            # to bind all labels to keys.
+            "sequential_key_binding": True,                        
+        },       
+        {
+            "annotation_type": "radio",
+            "name": "Personal experience",
+            "description": "Is the post describing a primary experience with a specific substance?",
+            "labels": [
+              { "name": "Early Use",
+                "tooltip_file": "tooltips/Early_Use.html"
+              },
+              {
+                "name": "Continued Use",
+                "tooltip_file": "tooltips/Continued_Use.html"
+              },
+
+              { "name": "Treatment",
+                "tooltip_file": "tooltips/Treatment.html"
+              },
+              "None"
+            ],
+
+            # If true, numbers [1-len(labels)] will be bound to each
+            # label. Annotations with more than 10 are not supported with this
+            # simple keybinding and will need to use the full item specification
+            # to bind all labels to keys.
+            "sequential_key_binding": True,                        
+        }, 
+        {
+            "annotation_type": "radio",
+            "name": "Withdrawal",
+            "description": "Is the post describing symptoms related to withdrawal or have mentioned a withdrawal experience?",
+            "labels": [
+              "Yes", "No"
+            ],
+
+            # If true, numbers [1-len(labels)] will be bound to each
+            # label. Annotations with more than 10 are not supported with this
+            # simple keybinding and will need to use the full item specification
+            # to bind all labels to keys.
+            "sequential_key_binding": True,                        
+        }, 
+        {
+            "annotation_type": "radio",
+            "name": "Relapse",
+            "description": "Is the post describing symptoms related to drug relapse?",
+            "labels": [
+              "Yes", "No"
+            ],
+
+            # If true, numbers [1-len(labels)] will be bound to each
+            # label. Annotations with more than 10 are not supported with this
+            # simple keybinding and will need to use the full item specification
+            # to bind all labels to keys.
+            "sequential_key_binding": True,                        
+        }

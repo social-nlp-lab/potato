@@ -144,8 +144,8 @@ def generate_radio_layout(annotation_scheme, horizontal=False):
         tooltip = "Entire a label not listed here"
         instruction = (
             "Other"
-            if "instruction" not in annotation_scheme["has_free_response"]
-            else annotation_scheme["has_free_response"]["instruction"]
+            # if "instruction" not in annotation_scheme["has_free_response"]
+            # else annotation_scheme["has_free_response"]["instruction"]
         )
 
         schematic += (

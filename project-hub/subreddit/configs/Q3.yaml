@@ -1,0 +1,173 @@
+{
+    "port": 9001,
+
+    "server_name": "potato annotator",
+
+    "annotation_task_name": "Drug Subreddit Analysis (Topics)",
+
+    # Potato will write the annotation file for all annotations to this
+    # directory, as well as per-annotator output files and state information
+    # necessary to restart annotation.
+    "output_annotation_dir": "annotation_output/pilot/Q3",
+
+    # The output format for the all-annotator data. Allowed formats are:
+    # * jsonl
+    # * json (same output as jsonl)
+    # * csv
+    # * tsv
+    #
+    "output_annotation_format": "tsv",
+
+    # If annotators are using a codebook, this will be linked at the top to the
+    # instance for easy access
+    "annotation_codebook_url": "",
+
+    "data_files": [
+       "data_files/drug.csv"
+    ],
+
+    "item_properties": {
+        "id_key": "id",
+        "text_key": "text"
+    },
+
+    #list_as_text is used when the input text is actually a list of texts, usually used for best-worst-scaling or dialogue analysis
+    "list_as_text": {
+      "text_list_prefix_type": 'none', #whether automatically insert a prefix for each line, currently supporting 'number', 'alphabet', 'number'
+      "horizontal": True,
+    },
+
+    # How many seconds do you want the annotators spend on each instance, after
+    # that, an alert will be sent per alert_time_each_instance seconds.
+    "alert_time_each_instance": 10000000,
+    "horizontal_key_bindings": true,
+
+    "annotation_schemes": [
+        # {
+        #     "annotation_type": "highlight",
+        #     "name": "Topics",
+        #     "description": "This is the main theme of the post",
+        #     "labels": [
+        #         { "name": "Symptoms",
+        #           "tooltip_file": "tooltips/Symptoms.html"
+        #         },
+        #         {
+        #           "name": "Guidance",
+        #           "tooltip_file": "tooltips/Guidance.html"
+        #          },
+
+        #         { "name": "Withdrawls",
+        #           "tooltip_file": "tooltips/Withdrawal.html"
+        #         },
+
+        #         { "name": "Recovery",
+        #           "tooltip_file": "tooltips/Recovery.html",
+        #         },
+        #         { "name": "Relapse",
+        #           "tooltip_file": "tooltips/Relapse.html",
+        #         },
+        #         { "name": "Sobriety",
+        #           "tooltip_file": "tooltips/Sobriety.html",
+        #         },
+        #         { "name": "Overdose",
+        #           "tooltip_file": "tooltips/Overdose.html",
+        #         },
+        #         { "name": "Social Support",
+        #           "tooltip_file": "tooltips/Social_Support.html",
+        #         },
+        #         { "name": "Cultural Reference",
+        #           "tooltip_file": "tooltips/Culture_Reference.html"
+        #         },
+        #         { "name": "Values",
+        #           "tooltip_file": "tooltips/Values.html"
+        #         },
+        #         { "name": "Banter",
+        #           "tooltip_file": "tooltips/Banter.html"
+        #         },
+        #         { "name": "Not Applicable",
+        #           "tooltip_file": "tooltips/NA.html"
+        #         },
+                
+        #     ], 
+        #     "sequential_key_binding": True,
+        # },
+        {
+          "annotation_type": "multiselect",
+            "name": "Emotion",
+            "description": "This is the main emotion of the post",
+            "labels": [
+                { "name": "Disgust",
+                  "tooltip_file": "tooltips/Disgust.html"
+                },
+                {
+                  "name": "Guilt",
+                  "tooltip_file": "tooltips/Guilt.html"
+                 },
+
+                { "name": "Satisfaction",
+                  "tooltip_file": "tooltips/Satisfaction.html"
+                },
+
+                { "name": "Remorse",
+                  "tooltip_file": "tooltips/Remorse.html",
+                },
+                { "name": "Gratitude",
+                  "tooltip_file": "tooltips/Gratitude.html",
+                },
+                { "name": "Shame",
+                  "tooltip_file": "tooltips/Shame.html",
+                },
+                { "name": "Fear",
+                  "tooltip_file": "tooltips/Fear.html",
+                },
+                { "name": "Happiness",
+                  "tooltip_file": "tooltips/Happiness.html",
+                },
+                { "name": "Anger",
+                  "tooltip_file": "tooltips/Anger.html"
+                },
+                { "name": "Anxiety",
+                  "tooltip_file": "tooltips/Anxiety.html"
+                },
+                { "name": "Hope",
+                  "tooltip_file": "tooltips/Hope.html"
+                },
+                { "name": "Confusion",
+                  "tooltip_file": "tooltips/Confusion.html"
+                },
+                { "name": "Despair",
+                  "tooltip_file": "tooltips/Despair.html"
+                },
+                { "name": "Excitement",
+                  "tooltip_file": "tooltips/Excitement.html"
+                },
+
+            ]
+        }
+
+
+    ],
+
+    # The html that changes the visualiztation for your task. Change this file
+    # to influence the layout and description of your task. This is not a full
+    # HTML page, just the piece that does lays out your task's pieces
+    "html_layout": "fixed_keybinding",
+
+
+    # The core UI files for Potato. You should not need to change these normally.
+    #
+    # Exceptions to this might include:
+    # 1) You want to add custom CSS/fonts to style your task
+    # 2) Your layout requires additional JS/assets to render
+    # 3) You want to support additional keybinding magic
+    #
+    # if you want to use your own template,
+    # please replace the string as a path to the template
+    "base_html_template": "default",
+    "header_file": "default",
+
+    # This is where the actual HTML files will be generated
+    "site_dir": "default"
+
+
+}
