@@ -2637,12 +2637,22 @@ def run_server(args):
     app.run(debug=args.very_verbose, host="0.0.0.0", port=port)
 
 
-def main():
-    if len(sys.argv) == 1:
-        # Run task configuration script if no arguments are given.
-        return run_create_task_cli()
+class Args:
+    def __init__(self) -> None:
+        self.mode = "start"
+        self.config_file = "project-hub/subreddit/configs/Q1.yaml"
+        self.port = 8000
+        self.verbose = False
+        self.debug = False
+        self.very_verbose = False
 
-    args = arguments()
+def main():
+    # if len(sys.argv) == 1:
+    #     # Run task configuration script if no arguments are given.
+    #     return run_create_task_cli()
+
+    # args = arguments()
+    args = Args()
     if args.mode == 'start':
         run_server(args)
     elif args.mode == 'get':

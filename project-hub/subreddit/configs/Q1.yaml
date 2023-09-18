@@ -44,6 +44,26 @@
     # that, an alert will be sent per alert_time_each_instance seconds.
     "alert_time_each_instance": 10000000,
 
+    "surveyflow": {
+      "on": True,
+      #"order" : ['pre_annotation', 'prestudy_passed', 'prestudy_failed', 'post_annotation'],
+      "order" : ['pre_annotation', 'post_annotation'],
+      "pre_annotation": ['surveyflow/intro.jsonl', 'surveyflow/instruction.jsonl', 'surveyflow/consent.jsonl'],
+      "post_annotation": ['surveyflow/experience.jsonl', 'surveyflow/demographic_questions.jsonl','surveyflow/end.jsonl'],
+      # If set, we will automatically generate testing questions similar to the annotation instances, but explicitly ask the annotator to choose one option
+      "testing": ['surveyflow/testing.jsonl'],
+    },
+    
+     "prestudy": {
+        "on": False,
+        "minimum_score": 0.8,
+        "groundtruth_key": 'whether_match',
+        "question_key": 'Whether the presented sentences are discussing the same scientific finding',
+        "answer_mapping": {'Yes': True, 'No': False},
+        "pass_page": 'surveyflow/prestudy_pass.jsonl',
+        "fail_page": 'surveyflow/prestudy_fail.jsonl'
+    },
+
     "annotation_schemes": [      
 
         {
